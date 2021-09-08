@@ -4,6 +4,8 @@ Sinatra API
 A boilerplate for **Sinatra** APIs.
 Not production ready probably.
 
+Highly based on [MLH/sinatra-boilerplate](https://github.com/MLH/sinatra-boilerplate).
+
 Usage
 -----
 
