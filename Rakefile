@@ -12,5 +12,6 @@ RSpec::Core::RakeTask.new(:spec) do |t|
 end
 
 task :console do
+  ENV['RACK_ENV'] = 'development'
   exec "irb -r irb/completion -r ./app"
 end
