@@ -15,3 +15,5 @@ ActiveSupport::Dependencies.autoload_paths += ListDirectories.new.call('./app')
 ApplicationConfiguration.configure do |config|
   config.some_config = 'Added in Boot'
 end
+
+require_relative "./environments/#{ENV['RACK_ENV']}" if ENV['RACK_ENV'].present?
