@@ -9,8 +9,11 @@ Bundler.require :default, (ENV['RACK_ENV'] || :development).to_sym
 require 'active_support'
 require_relative '../lib/list_directories'
 require_relative '../lib/application_configuration'
+require_relative '../lib/application_serializer'
 
 ActiveSupport::Dependencies.autoload_paths += ListDirectories.new.call('./app')
+
+require_relative '../lib/application_controller'
 
 ApplicationConfiguration.configure do |config|
   config.some_config = 'Added in Boot'
