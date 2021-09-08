@@ -32,6 +32,7 @@ This boilerplate has the following dependencies:
 
 - Ruby (v3.x)
 - PostgreSQL
+- Blueprinter
 
 Changelog
 ---------
