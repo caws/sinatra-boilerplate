@@ -19,12 +19,11 @@ class ApplicationConfiguration
   end
 
   class << self
-    def configure
-      yield @configure ||= Config.new
-    end
+    attr_accessor :config
 
-    def view_configuration
-      @configure
+    def configure
+      self.config ||= Config.new
+      yield(config) if block_given?
     end
   end
 end
