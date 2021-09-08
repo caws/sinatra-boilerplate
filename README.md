@@ -1,26 +1,25 @@
-MLH Sinatra Boilerplate
+Sinatra API
 =======================
 
-A boilerplate for **Sinatra** applications at MLH.
+A boilerplate for **Sinatra** APIs.
+Not production ready probably.
 
 Usage
 -----
 
-These instructions assume you have already installed the dependencies, cloned
-the repository, and navigated to the directory.  You can install the gems,
-create the database, and setup the binstups by running the following command:
+Run the following command to execute the basic setup:
 
 ```bash
 $ bin/setup
 ```
 
-When you're ready to start the server, just use:
+You can use the config.ru to run the server (with RubyMine for example), but you can also run it with the following:
 
 ```bash
 $ bin/bundle exec foreman start
 ```
 
-To run the tests:
+Run the tests with:
 
 ```bash
 $ bin/rake spec
@@ -31,11 +30,15 @@ Dependencies
 
 This boilerplate has the following dependencies:
 
- - Ruby (v2.x)
- - PostgreSQL
+- Ruby (v3.x)
+- PostgreSQL
 
 Changelog
 ---------
+
+### 1.3.0 (October 2nd, 2021)
+
+Bumped Ruby to 3.0.1, updated database name, prepared rspec to run specs from Bounded Contexts.
 
 ### 1.2.0 (January 21, 2020)
 
@@ -45,23 +48,23 @@ Updated Ruby to 2.6.5 and gems to latest versions.
 Hello world! This is the first commit to this repository.  Starting out, the
 boilerplate includes the following gems:
 
- - Active Record (v5.1.4)
- - Foreman (v0.84.0)
- - Postgres (v0.21.0)
- - Pry (v0.10.4)
- - Rack Test (v0.7.0
- - Rake (v12.1.0)
- - RSpec (v3.6.0)
- - Sinatra (v2.0.0)
- - Sinatra Contrib (v2.0.0)
+- Active Record (v5.1.4)
+- Foreman (v0.84.0)
+- Postgres (v0.21.0)
+- Pry (v0.10.4)
+- Rack Test (v0.7.0
+- Rake (v12.1.0)
+- RSpec (v3.6.0)
+- Sinatra (v2.0.0)
+- Sinatra Contrib (v2.0.0)
 
 The following utilities are also included:
 
- - A basic Sinatra app that serves static files from public
- - Binstubs for bundle, rake, and setup
- - Autoloaded ActiveRecord models
- - Per environment database configuration
- - An example spec and default Raketask to run the suite
+- A basic Sinatra app that serves static files from public
+- Binstubs for bundle, rake, and setup
+- Autoloaded ActiveRecord models
+- Per environment database configuration
+- An example spec and default Raketask to run the suite
 
 
 License
