@@ -1,7 +1,20 @@
-ENV["RACK_ENV"] = "test"
-abort("DATABASE_URL environment variable is set") if ENV["DATABASE_URL"]
+ENV['RACK_ENV'] = 'test'
+abort('DATABASE_URL environment variable is set') if ENV['DATABASE_URL']
+
+$LOAD_PATH << '.'
+require_relative '../lib/list_directories'
+require 'active_support'
+
+ActiveSupport::Dependencies.autoload_paths += ListDirectories.new.call('../../app')
 
 require_relative '../app'
+
+ActiveRecord::Base.establish_connection(
+  adapter: 'postgresql',
+  database: 'api-test'
+)
+
+DatabaseCleaner.strategy = :truncation
 
 module SinatraApp
   def app() App end
@@ -18,11 +31,17 @@ RSpec.configure do |config|
   end
 
   config.run_all_when_everything_filtered = true
-  config.example_status_persistence_file_path = "tmp/rspec_examples.txt"
   config.order = :random
 
   config.include Rack::Test::Methods
   config.include SinatraApp
+
+  config.before(:all) do
+    DatabaseCleaner.clean
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
 
 ActiveRecord::Migration.maintain_test_schema!
