@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: mlh-sinatra-app_development
+  database: sinatra-api-development
   encoding: utf8
   min_messages: warning
   pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
@@ -9,7 +9,7 @@ development: &default
 
 test:
   <<: *default
-  database: mlh-sinatra-app_test
+  database: sinatra-api-test
 
 production: &deploy
   encoding: utf8
